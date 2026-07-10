@@ -15,4 +15,4 @@ build-backend = "uv_build"
 
 
 [project.scripts]
-banwords = "banwords.main:main"
+banwords = "banwords.main:entry"
