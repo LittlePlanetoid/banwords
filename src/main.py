@@ -1,8 +1,7 @@
-import logging 
+from src import logger
+from src.cli import cli_args
 
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+logger.info("checking CLI...")
+args = cli_args()
 
-logger = logging.getLogger("banwords")
