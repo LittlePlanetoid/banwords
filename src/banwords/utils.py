@@ -3,6 +3,14 @@ from banwords import logger
 import tomllib
 
 from typing import Optional
+from dataclasses import dataclass
+
+
+@dataclass
+class BanwordsConf:
+    def __init__(self, conf: dict):
+        self.raw_conf = conf
+        self.ban_list = conf.get("ban_list")
 
 
 def _parse_tomfile(path: str) -> dict:
@@ -12,14 +20,13 @@ def _parse_tomfile(path: str) -> dict:
     except FileNotFoundError:
         raise FileNotFoundError("conf file was not found")
 
-def get_banwords_conf(path: str) -> Optional[dict]:
+
+def get_banwords_conf(path: str) -> Optional[BanwordsConf]:
     conf = _parse_tomfile(path)
     try:
-        if conf["tool"]["banwords"]:
-            logger.debug(f"banword's conf found -> {conf["tool"]["banwords"]}")
-            return conf["tool"]["banwords"]
+        return BanwordsConf(conf=conf["tool"]["banwords"])
     except KeyError:
         logger.error("no tool.banwords found")
-    
+
     logger.error(f"banwords's conf not found into {path}")
     return None
