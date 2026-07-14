@@ -9,4 +9,5 @@ logger.debug(args.__dict__)
 
 def entry() -> None:
     toml = get_banwords_conf(args.conf)
+    logger.debug(f"banwords conf: {toml.__dict__}")
 
