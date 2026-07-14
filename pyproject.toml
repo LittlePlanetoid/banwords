@@ -1,7 +1,7 @@
 [project]
 name = "banwords"
 version = "0.1.0"
-description = "Python tool for scanning projects"
+description = "Python tool. Scans project and alerts by words-list"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -15,3 +15,6 @@ build-backend = "uv_build"
 
 [project.scripts]
 banwords = "banwords.main:entry"
+
+[tool.banwords]
+key = "value"

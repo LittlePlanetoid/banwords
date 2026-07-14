@@ -1,2 +1,2 @@
 # banwords
-Python tool for scanning projects
+Python tool. Scans project and alerts by words-list
