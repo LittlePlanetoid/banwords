@@ -18,3 +18,4 @@ banwords = "banwords.main:entry"
 
 [tool.banwords]
 wordslist = ["word1", "word2"]
+exclude = [".venv", ".git"]
