@@ -1,6 +1,7 @@
 from banwords import logger
 
 import tomllib
+import os
 
 from typing import Optional
 from dataclasses import dataclass
@@ -30,3 +31,9 @@ def get_banwords_conf(path: str) -> Optional[BanwordsConf]:
 
     logger.error(f"banwords's conf not found into {path}")
     return None
+
+
+def list_files(start_path: str = ".") -> Optional[str]:
+    for root, _, files in os.walk(start_path):
+        for file in files:
+            print(os.path.join(root, file))
