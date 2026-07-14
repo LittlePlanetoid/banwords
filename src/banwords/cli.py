@@ -11,7 +11,13 @@ def cli_args() -> Namespace:
         prog="banwords CLI", formatter_class=ArgumentDefaultsHelpFormatter
     )
 
-    parser.add_argument("-c", "--conf", default="pyproject.toml", help="tool's conf", choices=["pyproject.toml", "banwords.toml"])
+    parser.add_argument(
+        "-c",
+        "--conf",
+        default="pyproject.toml",
+        help="tool's conf",
+        choices=["pyproject.toml", "banwords.toml"],
+    )
     parser.add_argument(
         "-l",
         "--loglevel",
