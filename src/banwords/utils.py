@@ -54,3 +54,12 @@ def list_files(banwords_conf: BanwordsConf, start_path: str = ".") -> Optional[s
                 files_list.append(full_path)
 
     logger.debug(f"{len(files_list)} files found")
+    return files_list
+
+
+def read_file(path: str) -> Optional[list[str]]:
+    with open(path, "r") as file:
+        lines = file.readlines()
+        if len(lines) == 0:
+            logger.warning(f"{path} is empty")
+        return lines
