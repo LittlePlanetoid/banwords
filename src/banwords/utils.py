@@ -39,7 +39,18 @@ def get_banwords_conf(path: str) -> Optional[BanwordsConf]:
     return None
 
 
-def list_files(start_path: str = ".") -> Optional[str]:
+# TODO: be better for that func
+def list_files(banwords_conf: BanwordsConf, start_path: str = ".") -> Optional[str]:
+    files_list: list[str] = []
     for root, _, files in os.walk(start_path):
         for file in files:
-            print(os.path.join(root, file))
+            full_path = os.path.join(root, file)
+            exclude_found = False
+            for exclude in banwords_conf.exclude:
+                if exclude in full_path:
+                    exclude_found = True
+            if not exclude_found:
+                logger.debug(f"found {full_path}")
+                files_list.append(full_path)
+
+    logger.debug(f"{len(files_list)} files found")
