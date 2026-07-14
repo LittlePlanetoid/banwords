@@ -10,7 +10,7 @@ from dataclasses import dataclass
 class BanwordsConf:
     def __init__(self, conf: dict):
         self.raw_conf = conf
-        self.ban_list = conf.get("ban_list")
+        self.wordslist = conf.get("wordslist")
 
 
 def _parse_tomfile(path: str) -> dict:

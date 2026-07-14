@@ -17,4 +17,4 @@ build-backend = "uv_build"
 banwords = "banwords.main:entry"
 
 [tool.banwords]
-key = "value"
+wordslist = ["word1", "word2"]
