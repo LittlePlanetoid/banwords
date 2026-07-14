@@ -40,7 +40,7 @@ def get_banwords_conf(path: str) -> Optional[BanwordsConf]:
 
 
 # TODO: be better for that func
-def list_files(banwords_conf: BanwordsConf, start_path: str = ".") -> Optional[str]:
+def list_files(banwords_conf: BanwordsConf, start_path: str = ".") -> Optional[list[str]]:
     files_list: list[str] = []
     for root, _, files in os.walk(start_path):
         for file in files:
