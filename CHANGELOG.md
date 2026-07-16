@@ -1,3 +1,8 @@
+## [unreleased]
+
+### 📚 Documentation
+
+- Writed Setup part of readme
 ## [0.0.1] - 2026-07-14
 
 ### 🚀 Features
