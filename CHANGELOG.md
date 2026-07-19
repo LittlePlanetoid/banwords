@@ -3,6 +3,7 @@
 ### 📚 Documentation
 
 - Writed Setup part of readme
+- Added Usage part in readme with CLI args and TOML example
 ## [0.0.1] - 2026-07-14
 
 ### 🚀 Features
