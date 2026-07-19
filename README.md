@@ -30,3 +30,27 @@ pip install dist/banwords*.whl
 # and use banwords tool everywhere 
 # > banwords --help
 ```
+
+## Usage
+
+### CLI
+```bash
+usage: banwords CLI [-h] [-c {pyproject.toml,banwords.toml}] [-l {INFO,DEBUG}]
+
+options:
+  -h, --help            show this help message and exit
+  -c, --conf {pyproject.toml,banwords.toml}
+                        tool is conf (default: pyproject.toml)
+  -l, --loglevel {INFO,DEBUG}
+                        lvl your logs (default: INFO)
+```
+
+
+### TOML conf
+
+setup banwords with a TOML's conf. You need to mark banwords part using `[tool.banwords]`.
+
+| marker    | usage                                              | example                                                 |
+| :-------- | :------------------------------------------------: | ------------------------------------------------------: |
+| wordslist | words to find and match                            | wordslist = ["word1", "word2"]                          |
+| exclude   | file is skipped if exclude occurency in its path   | exclude = [".venv", ".git", "\_\_pycache__", "uv.lock"] |
