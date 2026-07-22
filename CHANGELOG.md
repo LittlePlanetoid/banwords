@@ -1,5 +1,9 @@
 ## [unreleased]
 
+### 🚜 Refactor
+
+- Change project's skeleton
+
 ### 📚 Documentation
 
 - Writed Setup part of readme
