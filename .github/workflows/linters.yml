@@ -1,0 +1,33 @@
+name: Linters
+
+on:
+    push:
+        branches: "**"
+
+jobs:
+    per-commit:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v7
+
+            - name: Install UV
+              uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+
+            - name: Setup environment
+              run: uv sync --frozen
+            
+            - name: Ruff format
+              run: uv run ruff format --diff
+
+            - name: Ruff check
+              run: uv run ruff check
+
+            - name: Pymarkdownlnt
+              run: uv run pymarkdownlnt scan .
+
+            - name: Ty check
+              run: uv run ty check
+
+            - name: Codespell
+              run: uv run codespell
