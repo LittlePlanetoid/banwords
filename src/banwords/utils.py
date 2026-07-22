@@ -60,3 +60,10 @@ def read_file(file: str) -> list[str]:
     except Exception as e:
         print(f"An unexpected error occurred while reading the file: {e}")
         return []
+
+
+def colorize_line(line: str, occurencies: list[str]) -> str:
+    # TODO: find occurency(ies) and being/end in line
+    # TODO: return formatted line
+
+    return line
