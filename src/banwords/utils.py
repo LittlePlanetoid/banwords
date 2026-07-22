@@ -15,7 +15,7 @@ def _parse_tomfile(path: str) -> dict:
         raise FileNotFoundError("conf file was not found")
 
 
-def get_banwords_conf(path: str) -> Optional[BanwordsConf]:
+def get_banwords_conf(path: str) -> BanwordsConf:
     conf = _parse_tomfile(path)
     try:
         return BanwordsConf(conf=conf["tool"]["banwords"])
@@ -23,7 +23,7 @@ def get_banwords_conf(path: str) -> Optional[BanwordsConf]:
         logger.error("no tool.banwords found")
 
     logger.error(f"banwords's conf not found into {path}")
-    return None
+    return BanwordsConf(conf={"wordslist": None, "exclude": None})
 
 
 # TODO: be better for that func
