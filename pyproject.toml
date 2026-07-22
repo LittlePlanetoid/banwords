@@ -19,3 +19,8 @@ banwords = "banwords.main:entry"
 [tool.banwords]
 wordslist = ["word1", "word2"]
 exclude = [".venv", ".git", "__pycache__", "uv.lock", "pyproject.toml"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.22",
+]
