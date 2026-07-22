@@ -1,0 +1,16 @@
+name: Linters
+
+on:
+    push:
+        branches: "**"
+
+jobs:
+    per-commit:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Setup environment
+              run: uv sync --frozen
+            
+            - name: ruff format
+              run: uv run ruff format
