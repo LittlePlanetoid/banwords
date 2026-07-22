@@ -28,7 +28,7 @@ def entry() -> None:
                 for word in toml.wordslist:
                     if word in line:
                         found = True
-                        print(f"{file} - {line}")
+                        print(f"{file} - {line}", end="")
 
     if found:
         sys.exit(1)
