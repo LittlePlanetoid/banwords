@@ -24,11 +24,16 @@ def entry() -> None:
     for file in files:
         lines = read_file(file)
         if lines:
-            for line in lines:
+            for num_line, line in enumerate(lines):
                 for word in toml.wordslist:
                     if word in line:
                         found = True
-                        print(colorize_line(f"{file} - {line}", toml.wordslist), end="")
+                        print(
+                            colorize_line(
+                                f"{file} - l.{num_line} - {line}", toml.wordslist
+                            ),
+                            end="",
+                        )
 
     if found:
         sys.exit(1)
