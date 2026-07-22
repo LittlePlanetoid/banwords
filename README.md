@@ -1,9 +1,10 @@
 # banwords
+
 Python tool. Scans project and alerts by words-list
 
-
 ## Setup
-If you have no specific need, or no need to search words in Python's project, considere to use a bash onliner : 
+
+If you have no specific need, or no need to search words in Python's project, considere to use a bash onliner :
 
 ```bash
 (
@@ -19,7 +20,8 @@ If you have no specific need, or no need to search words in Python's project, co
 ) || echo "no banword found"
 ```
 
-If you want to use that lib in pip env : 
+If you want to use that lib in pip env :
+
 ```bash
 git clone git@github.com:LittlePlanetoid/banwords.git
 cd banwords
@@ -34,6 +36,7 @@ pip install dist/banwords*.whl
 ## Usage
 
 ### CLI
+
 ```bash
 usage: banwords CLI [-h] [-c {pyproject.toml,banwords.toml}] [-l {INFO,DEBUG}]
 
@@ -44,7 +47,6 @@ options:
   -l, --loglevel {INFO,DEBUG}
                         lvl your logs (default: INFO)
 ```
-
 
 ### TOML conf
 
