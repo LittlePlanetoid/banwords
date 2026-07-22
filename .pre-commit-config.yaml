@@ -17,3 +17,12 @@ repos:
         language: system
         types: [python]
         args: ["format", "--diff"]
+
+  - repo: local
+    hooks:
+      - id: py-markdownlint
+        name: py-markdownlint
+        entry: uv run pymarkdownlnt
+        language: system
+        types: [markdown]
+        args: ["."]

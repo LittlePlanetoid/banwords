@@ -22,5 +22,6 @@ exclude = [".venv", ".git", "__pycache__", "uv.lock", "pyproject.toml"]
 
 [dependency-groups]
 dev = [
+    "pymarkdownlnt>=0.9.39",
     "ruff>=0.15.22",
 ]
