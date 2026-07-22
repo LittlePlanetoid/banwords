@@ -56,3 +56,19 @@ setup banwords with a TOML's conf. You need to mark banwords part using `[tool.b
 | :-------- | :------------------------------------------------: | ------------------------------------------------------: |
 | wordslist | words to find and match                            | wordslist = ["word1", "word2"]                          |
 | exclude   | file is skipped if exclude occurency in its path   | exclude = [".venv", ".git", "\_\_pycache__", "uv.lock"] |
+
+## Dev
+
+Local setup project :
+
+### pre-commits
+
+```bash
+uv run pre-commit install
+
+# usage on whole project
+uv run pre-commit run --all-files
+
+# usage on commited changes
+uv run pre-commit run
+```
