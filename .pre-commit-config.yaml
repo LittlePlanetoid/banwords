@@ -35,3 +35,11 @@ repos:
         language: system
         types: [python]
         args: ["check"]
+
+  - repo: local
+    hooks:
+      - id: codespell
+        name: codespell
+        entry: uv run codespell
+        language: system
+        types: [file]

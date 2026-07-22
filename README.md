@@ -4,7 +4,7 @@ Python tool. Scans project and alerts by words-list
 
 ## Setup
 
-If you have no specific need, or no need to search words in Python's project, considere to use a bash onliner :
+If you have no specific need, or no need to search words in Python's project, consider to use a bash onliner :
 
 ```bash
 (
@@ -71,6 +71,6 @@ Usage:
 # usage on whole project
 uv run pre-commit run --all-files
 
-# usage on commited changes
+# usage on committed changes
 uv run pre-commit run
 ```
