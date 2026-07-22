@@ -46,9 +46,17 @@ def list_files(
     return files_list
 
 
-def read_file(path: str) -> Optional[list[str]]:
-    with open(path, "r") as file:
-        lines = file.readlines()
-        if len(lines) == 0:
-            logger.warning(f"{path} is empty")
+def read_file(file: str) -> list[str]:
+    """Reads content from a specified file path."""
+    try:
+        with open(file, "r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+            if len(lines) == 0:
+                logger.warning(f"{file} is empty")
         return lines
+    except FileNotFoundError:
+        print(f"Error: File not found at {file}")
+        return []
+    except Exception as e:
+        print(f"An unexpected error occurred while reading the file: {e}")
+        return []
