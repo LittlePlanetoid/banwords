@@ -25,3 +25,6 @@ dev = [
     "pymarkdownlnt>=0.9.39",
     "ruff>=0.15.22",
 ]
+
+[tool.pymarkdown]
+system.exclude_path = "*CHANGELOG.md"
