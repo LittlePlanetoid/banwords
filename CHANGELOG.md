@@ -1,5 +1,9 @@
 ## [unreleased]
 
+### 🐛 Bug Fixes
+
+- UnicodeDecodeError on file opening (#11)
+
 ### 🚜 Refactor
 
 - Change project's skeleton
@@ -12,6 +16,10 @@
 ### 🎨 Styling
 
 - Add pre-commit linters and lint project (#9)
+
+### ⚙️ Miscellaneous Tasks
+
+- Add CI with test stage (#12)
 ## [0.0.1] - 2026-07-14
 
 ### 🚀 Features
