@@ -17,5 +17,17 @@ jobs:
             - name: Setup environment
               run: uv sync --frozen
             
-            - name: ruff format
-              run: uv run ruff format
+            - name: Ruff format
+              run: uv run ruff format --diff
+
+            - name: Ruff check
+              run: uv run ruff check
+
+            - name: Pymarkdownlnt
+              run: uv run pymarkdownlnt scan .
+
+            - name: Ty check
+              run: uv run ty check
+
+            - name: Codespell
+              run: uv run codespell
