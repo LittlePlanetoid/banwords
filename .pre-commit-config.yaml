@@ -25,4 +25,4 @@ repos:
         entry: uv run pymarkdownlnt
         language: system
         types: [markdown]
-        args: ["."]
+        args: ["scan", "."]
