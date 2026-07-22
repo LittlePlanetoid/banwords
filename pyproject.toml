@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "argparse>=1.4.0",
+    "colorama>=0.4.6",
     "logging>=0.4.9.6",
 ]
 
@@ -17,7 +18,7 @@ build-backend = "uv_build"
 banwords = "banwords.main:entry"
 
 [tool.banwords]
-wordslist = ["word1", "word2"]
+wordslist = ["wordslist"]
 exclude = [".venv", ".git", "__pycache__", "uv.lock", "pyproject.toml"]
 
 [dependency-groups]

@@ -5,6 +5,10 @@ import tomllib
 import os
 
 from typing import Optional
+from colorama import Fore, init, Style
+
+
+init()
 
 
 def _parse_tomfile(path: str) -> dict:
@@ -60,3 +64,28 @@ def read_file(file: str) -> list[str]:
     except Exception as e:
         print(f"An unexpected error occurred while reading the file: {e}")
         return []
+
+
+def colorize_line(line: str, occurencies: list[str]) -> str:
+    words_found: list = []
+    for pos, car in enumerate(line):
+        for occurency in occurencies:
+            if car == occurency[0] and line[pos : pos + len(occurency)] == occurency:
+                words_found.append((pos, pos + len(occurency)))
+    logger.debug(words_found)
+
+    colorized_line: str = ""
+    if not words_found:
+        logger.debug(f"no occurency found for line: {line}")
+        return line
+
+    colorized_line += line[: words_found[0][0]]
+    for pos, (pos_beg, pos_end) in enumerate(words_found):
+        try:
+            colorized_line += f"{Fore.RED}{line[pos_beg:pos_end]}{Style.RESET_ALL}{line[pos_end : words_found[pos + 1][0]]}"
+        except IndexError:
+            colorized_line += (
+                f"{Fore.RED}{line[pos_beg:pos_end]}{Style.RESET_ALL}{line[pos_end:]}"
+            )
+            return colorized_line
+    return colorized_line

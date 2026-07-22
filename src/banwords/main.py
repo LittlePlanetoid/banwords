@@ -2,7 +2,7 @@ import sys
 
 from banwords import logger
 from banwords.cli import cli_args
-from banwords.utils import get_banwords_conf, list_files, read_file
+from banwords.utils import get_banwords_conf, list_files, read_file, colorize_line
 
 
 args = cli_args()
@@ -24,11 +24,16 @@ def entry() -> None:
     for file in files:
         lines = read_file(file)
         if lines:
-            for line in lines:
+            for num_line, line in enumerate(lines):
                 for word in toml.wordslist:
                     if word in line:
                         found = True
-                        print(f"{file} - {line}")
+                        print(
+                            colorize_line(
+                                f"{file} - l.{num_line} - {line}", toml.wordslist
+                            ),
+                            end="",
+                        )
 
     if found:
         sys.exit(1)
