@@ -63,9 +63,11 @@ Local setup project :
 
 ### pre-commits
 
-```bash
-uv run pre-commit install
+Setup: `uv run pre-commit install`
 
+Usage:
+
+```bash
 # usage on whole project
 uv run pre-commit run --all-files
 
