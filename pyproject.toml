@@ -19,3 +19,18 @@ banwords = "banwords.main:entry"
 [tool.banwords]
 wordslist = ["word1", "word2"]
 exclude = [".venv", ".git", "__pycache__", "uv.lock", "pyproject.toml"]
+
+[dependency-groups]
+dev = [
+    "codespell>=2.4.3",
+    "pymarkdownlnt>=0.9.39",
+    "ruff>=0.15.22",
+    "ty>=0.0.62",
+]
+
+[tool.pymarkdown]
+system.exclude_path = "*CHANGELOG.md"
+plugins.MD013.line_length = 150
+
+[tool.codespell]
+skip="*CHANGELOG.md"

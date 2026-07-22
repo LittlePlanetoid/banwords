@@ -1,0 +1,45 @@
+repos:
+
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff-check
+        entry: uv run ruff
+        language: system
+        types: [python]
+        args: ["check"]
+
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: ruff-format
+        entry: uv run ruff
+        language: system
+        types: [python]
+        args: ["format", "--diff"]
+
+  - repo: local
+    hooks:
+      - id: py-markdownlint
+        name: py-markdownlint
+        entry: uv run pymarkdownlnt
+        language: system
+        types: [markdown]
+        args: ["scan", "."]
+
+  - repo: local
+    hooks:
+      - id: ty-check
+        name: ty-check
+        entry: uv run ty
+        language: system
+        types: [python]
+        args: ["check"]
+
+  - repo: local
+    hooks:
+      - id: codespell
+        name: codespell
+        entry: uv run codespell
+        language: system
+        types: [file]

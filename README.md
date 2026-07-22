@@ -1,9 +1,10 @@
 # banwords
+
 Python tool. Scans project and alerts by words-list
 
-
 ## Setup
-If you have no specific need, or no need to search words in Python's project, considere to use a bash onliner : 
+
+If you have no specific need, or no need to search words in Python's project, consider to use a bash onliner :
 
 ```bash
 (
@@ -19,7 +20,8 @@ If you have no specific need, or no need to search words in Python's project, co
 ) || echo "no banword found"
 ```
 
-If you want to use that lib in pip env : 
+If you want to use that lib in pip env :
+
 ```bash
 git clone git@github.com:LittlePlanetoid/banwords.git
 cd banwords
@@ -34,6 +36,7 @@ pip install dist/banwords*.whl
 ## Usage
 
 ### CLI
+
 ```bash
 usage: banwords CLI [-h] [-c {pyproject.toml,banwords.toml}] [-l {INFO,DEBUG}]
 
@@ -45,7 +48,6 @@ options:
                         lvl your logs (default: INFO)
 ```
 
-
 ### TOML conf
 
 setup banwords with a TOML's conf. You need to mark banwords part using `[tool.banwords]`.
@@ -54,3 +56,21 @@ setup banwords with a TOML's conf. You need to mark banwords part using `[tool.b
 | :-------- | :------------------------------------------------: | ------------------------------------------------------: |
 | wordslist | words to find and match                            | wordslist = ["word1", "word2"]                          |
 | exclude   | file is skipped if exclude occurency in its path   | exclude = [".venv", ".git", "\_\_pycache__", "uv.lock"] |
+
+## Dev
+
+Local setup project :
+
+### pre-commits
+
+Setup: `uv run pre-commit install`
+
+Usage:
+
+```bash
+# usage on whole project
+uv run pre-commit run --all-files
+
+# usage on committed changes
+uv run pre-commit run
+```

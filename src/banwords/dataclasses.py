@@ -1,17 +1,16 @@
 from banwords import logger
 
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
 class BanwordsConf:
     def __init__(self, conf: dict):
 
-        self.wordslist: Optional[list[str]] = conf.get("wordslist")
-        if self.wordslist is None:
-            raise Exception("wordslist not found into conf file")
+        self.wordslist: list[str] = conf.get("wordslist", [])
+        if len(self.wordslist) == 0:
+            logger.error("wordslist not found into conf file")
 
-        self.exclude: Optional[list[str]] = conf.get("exclude")
-        if self.exclude is None:
+        self.exclude: list[str] = conf.get("exclude", [])
+        if len(self.exclude) == 0:
             logger.warning("no exclude found into conf file")

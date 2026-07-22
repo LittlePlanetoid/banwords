@@ -14,13 +14,21 @@ def entry() -> None:
     toml = get_banwords_conf(args.conf)
     logger.debug(f"banwords conf: {toml.__dict__}")
     files = list_files(toml)
+
+    if not files:
+        logger.warning("no file was found")
+        return
+
+    # TODO: do better
     found = False
     for file in files:
-        for line in read_file(file):
-            for word in toml.wordslist:
-                if word in line:
-                    found = True
-                    print(f"{file} - {line}")
+        lines = read_file(file)
+        if lines:
+            for line in lines:
+                for word in toml.wordslist:
+                    if word in line:
+                        found = True
+                        print(f"{file} - {line}")
 
     if found:
         sys.exit(1)
