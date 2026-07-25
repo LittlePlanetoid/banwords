@@ -20,6 +20,7 @@
 ### ⚙️ Miscellaneous Tasks
 
 - Add CI with test stage (#12)
+- Simplify readme after first Pypi release (manual release) (#14)
 ## [0.0.1] - 2026-07-14
 
 ### 🚀 Features
