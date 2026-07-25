@@ -16,6 +16,7 @@
 ### 🎨 Styling
 
 - Add pre-commit linters and lint project (#9)
+- Refactor output (#13)
 
 ### ⚙️ Miscellaneous Tasks
 
