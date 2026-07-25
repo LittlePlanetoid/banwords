@@ -14,9 +14,8 @@ If you have no specific need, or no need to search words in Python's project, co
          --exclude-dir=".venv" \
          --exclude-dir=".git" \
          --exclude-dir="__pycache__" \
-         "list\|of\|words\|to\|search" \
-         . &&
-    echo "banwords founds!"
+         "(b)list|of|words|to|search(/b)" \
+         .
 ) || echo "no banword found"
 ```
 
