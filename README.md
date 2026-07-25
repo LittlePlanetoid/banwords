@@ -14,39 +14,22 @@ If you have no specific need, or no need to search words in Python's project, co
          --exclude-dir=".venv" \
          --exclude-dir=".git" \
          --exclude-dir="__pycache__" \
-         "list\|of\|words\|to\|search" \
-         . &&
-    echo "banwords founds!"
+         "(b)list|of|words|to|search(/b)" \
+         .
 ) || echo "no banword found"
 ```
 
-If you want to use that lib in pip env :
+If you want to use that lib in python's env using UV:
 
 ```bash
 git clone git@github.com:LittlePlanetoid/banwords.git
 cd banwords
-uv build
-python -m venv banwords_env
-source banwords_env/bin/activate
-pip install dist/banwords*.whl
-# and use banwords tool everywhere 
-# > banwords --help
+uv run banwords  # need to have a TOML conf to word
 ```
 
 ## Usage
 
-### CLI
-
-```bash
-usage: banwords CLI [-h] [-c {pyproject.toml,banwords.toml}] [-l {INFO,DEBUG}]
-
-options:
-  -h, --help            show this help message and exit
-  -c, --conf {pyproject.toml,banwords.toml}
-                        tool is conf (default: pyproject.toml)
-  -l, --loglevel {INFO,DEBUG}
-                        lvl your logs (default: INFO)
-```
+`uv run banwords --conf <pyproject.toml by default>`
 
 ### TOML conf
 
