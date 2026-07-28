@@ -25,4 +25,17 @@ def cli_args() -> Namespace:
         default=_levelToName[INFO],
         help="lvl your logs",
     )
+    parser.add_argument(
+        "-wl",
+        "--wordslist",
+        nargs="*",
+        help="wordslist to search",
+    )
+    parser.add_argument(
+        "-ex",
+        "--exclude",
+        nargs="*",
+        help="exclude by occurency in PathFile",
+    )
+
     return parser.parse_args()
