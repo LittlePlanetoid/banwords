@@ -11,7 +11,7 @@ logger.debug(f"CLI: {args.__dict__}")
 
 
 def entry() -> None:
-    toml = get_banwords_conf(args.conf)
+    toml = get_banwords_conf(args)
     logger.debug(f"banwords conf: {toml.__dict__}")
     files = list_files(toml)
 

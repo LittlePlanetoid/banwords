@@ -5,6 +5,7 @@ import tomllib
 import os
 
 from typing import Optional
+from argparse import Namespace
 from colorama import Fore, init, Style
 
 
@@ -19,14 +20,13 @@ def _parse_tomfile(path: str) -> dict:
         raise FileNotFoundError("conf file was not found")
 
 
-def get_banwords_conf(path: str) -> BanwordsConf:
-    conf = _parse_tomfile(path)
+def get_banwords_conf(args: Namespace) -> BanwordsConf:
+    conf = _parse_tomfile(args.conf)
     try:
         return BanwordsConf(conf=conf["tool"]["banwords"])
     except KeyError:
-        logger.error("no tool.banwords found")
+        logger.error(f"banwords's conf not found into {args.conf}")
 
-    logger.error(f"banwords's conf not found into {path}")
     return BanwordsConf(conf={"wordslist": None, "exclude": None})
 
 
