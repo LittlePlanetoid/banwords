@@ -5,7 +5,7 @@ from banwords.cli import cli_args
 from banwords.utils import get_banwords_conf, list_files, read_file, colorize_line
 
 
-args = cli_args()
+args = cli_args().parse_args()
 logger.setLevel(args.loglevel)
 logger.debug(f"CLI: {args.__dict__}")
 
