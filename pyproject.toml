@@ -42,3 +42,6 @@ addopts = ["-ra", "-q", "-vvv"]
 testpaths = [
     "src/banwords/tests"
 ]
+markers = [
+    "cli: all cli tests"
+]
