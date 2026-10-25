@@ -36,3 +36,9 @@ plugins.MD013.line_length = 150
 
 [tool.codespell]
 skip="*CHANGELOG.md"
+
+[tool.pytest]
+addopts = ["-ra", "-q", "-vvv"]
+testpaths = [
+    "src/banwords/tests"
+]
