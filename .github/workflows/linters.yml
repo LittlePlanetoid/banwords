@@ -31,3 +31,5 @@ jobs:
 
             - name: Codespell
               run: uv run codespell
+            - name: tests
+              run: uv run pytest -m "not deactivated"

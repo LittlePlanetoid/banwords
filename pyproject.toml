@@ -25,6 +25,7 @@ exclude = [".venv", ".git", "__pycache__", "uv.lock", "pyproject.toml"]
 dev = [
     "codespell>=2.4.3",
     "pymarkdownlnt>=0.9.39",
+    "pytest>=9.1.1",
     "ruff>=0.15.22",
     "ty>=0.0.62",
 ]
@@ -35,3 +36,12 @@ plugins.MD013.line_length = 150
 
 [tool.codespell]
 skip="*CHANGELOG.md"
+
+[tool.pytest]
+addopts = ["-ra", "-q", "-vvv"]
+testpaths = [
+    "src/banwords/tests"
+]
+markers = [
+    "cli: all cli tests"
+]

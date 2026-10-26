@@ -1,11 +1,11 @@
-from argparse import Namespace, ArgumentParser, ArgumentDefaultsHelpFormatter
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from logging import INFO, DEBUG, _levelToName
 
 
 log_levels: list[str] = [_levelToName[INFO], _levelToName[DEBUG]]
 
 
-def cli_args() -> Namespace:
+def cli_args() -> ArgumentParser:
 
     parser = ArgumentParser(
         prog="banwords CLI", formatter_class=ArgumentDefaultsHelpFormatter
@@ -25,4 +25,17 @@ def cli_args() -> Namespace:
         default=_levelToName[INFO],
         help="lvl your logs",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "-wl",
+        "--wordslist",
+        nargs="*",
+        help="wordslist to search",
+    )
+    parser.add_argument(
+        "-ex",
+        "--exclude",
+        nargs="*",
+        help="exclude by occurency in PathFile",
+    )
+
+    return parser
